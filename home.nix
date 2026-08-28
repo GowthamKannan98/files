@@ -49,6 +49,7 @@
       gs = "git status";
       gd = "git diff";
       v  = "nvim";
+      rebuild = "home-manager switch --flake ~/dotfiles#gowtham_k";
     };
   };
 
