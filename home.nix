@@ -18,6 +18,10 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim";
   };
 
+  home.file.".config/herdr/config.toml" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/herdr/config.toml";
+  };
+
   home.sessionPath = [ "$HOME/.local/bin" ];
 
   home.sessionVariables = {
