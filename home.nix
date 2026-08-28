@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   home.username = "gowtham_k";
   home.homeDirectory = "/home/gowtham_k";
   home.stateVersion = "26.05";
@@ -12,6 +12,16 @@
     tmux
     nodejs_22
   ];
+
+  # Symlink ~/.config/nvim -> ~/dotfiles/nvim (mutable, edits track in git)
+  home.file.".config/nvim" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim";
+  };
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
 
   programs.home-manager.enable = true;
 
