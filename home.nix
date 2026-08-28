@@ -22,6 +22,10 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/herdr/config.toml";
   };
 
+  home.file.".claude/CLAUDE.md" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/agents.md";
+  };
+  
   home.sessionPath = [ "$HOME/.local/bin" ];
 
   home.sessionVariables = {
