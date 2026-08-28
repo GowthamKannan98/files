@@ -18,6 +18,8 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim";
   };
 
+  home.sessionPath = [ "$HOME/.local/bin" ];
+
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
@@ -30,6 +32,7 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     initContent = ''
+      export PATH="$HOME/.local/bin:$PATH"
       eval "$(starship init zsh)"
       bindkey '^f' autosuggest-accept
     '';
